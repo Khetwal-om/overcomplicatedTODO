@@ -1,6 +1,26 @@
 import React from 'react'
-import './styles.css'
-
-export default function App() {
-  return <div className="App"></div>
+// import PrivateRoute from './UI/Components/PrivateRoute'
+import Todos from './UI/Routes/Todos'
+import SignIn from './UI/Routes/SignIn'
+import { Switch, Route } from 'react-router-dom'
+import PrivateRoute from './UI/components/PrivateRoute'
+function App() {
+  return (
+    <div
+      style={{
+        textAlign: 'center'
+      }}
+    >
+      <h1>Redux Todo App</h1>
+      <Switch>
+        <PrivateRoute path="/todos">
+          <Todos />
+        </PrivateRoute>
+        <Route path="/">
+          <SignIn />
+        </Route>
+      </Switch>
+    </div>
+  )
 }
+export default App
